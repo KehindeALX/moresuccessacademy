@@ -1,0 +1,105 @@
+<!-- ════════════════════════════════════════════════════════
+     sections/app-preview.html
+     Phone mockup gallery + tabbed Gamma embed panels
+     ════════════════════════════════════════════════════════ -->
+<section id="app-preview" class="section" aria-labelledby="preview-heading">
+  <div class="blob blob--gold w-[500px] h-[400px] left-0 top-1/2 -translate-y-1/2 opacity-20" aria-hidden="true"></div>
+
+  <div class="container z-content">
+
+    <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+      <p class="section-label section-label--center mb-4">Product Preview</p>
+      <h2 id="preview-heading" class="section-title mb-5">
+        See What&rsquo;s <span class="text-gold">Coming.</span>
+      </h2>
+      <p class="section-body">
+        A sneak peek at the experience we&rsquo;re building for you &mdash;
+        beautiful, intelligent, and built for African learners.
+      </p>
+    </div>
+
+    <!-- Phone Gallery -->
+    <div class="flex flex-wrap justify-center gap-8 mb-20" aria-label="App screenshots">
+      <div class="phone-frame w-52 anim-float-slow reveal">
+        <img
+          src="assets/images/mockup-2.jpg"
+          alt="MSA app: Good morning dashboard showing study plan and active courses"
+          width="208"
+          loading="lazy"
+        />
+      </div>
+      <div class="phone-frame w-52 anim-float-med reveal delay-100" style="margin-top: 32px;">
+        <img
+          src="assets/images/mockup-1.jpg"
+          alt="MSA app: Agentic AI LMS with skill tree and level progress"
+          width="208"
+          loading="lazy"
+        />
+      </div>
+      <div class="phone-frame w-52 anim-float-slow reveal delay-200">
+        <img
+          src="assets/images/mockup-4.jpg"
+          alt="MSA app: Achievement badges and learning progress overview"
+          width="208"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Gamma Embeds with Tab Switcher -->
+    <div class="reveal">
+
+      <!-- Tab Buttons -->
+      <div class="flex flex-wrap gap-3 justify-center mb-6" role="tablist" aria-label="Platform documents">
+        <button
+          class="tab-btn is-active"
+          role="tab"
+          data-tab="tab-overview"
+          aria-selected="true"
+          aria-controls="tab-overview"
+        >
+          <i class="fas fa-file-alt mr-2" aria-hidden="true"></i>Platform Overview
+        </button>
+        <button
+          class="tab-btn"
+          role="tab"
+          data-tab="tab-research"
+          aria-selected="false"
+          aria-controls="tab-research"
+        >
+          <i class="fas fa-chart-bar mr-2" aria-hidden="true"></i>Market Research
+        </button>
+      </div>
+
+      <!-- Tab Panels -->
+      <div
+        id="tab-overview"
+        class="tab-panel is-active gamma-embed"
+        role="tabpanel"
+        aria-labelledby="tab-overview"
+      >
+        <iframe
+          src="https://gamma.app/embed/ss4pn2nv5msyqlt"
+          allow="fullscreen"
+          loading="lazy"
+          title="More Success Academy — Platform Overview"
+        ></iframe>
+      </div>
+
+      <div
+        id="tab-research"
+        class="tab-panel gamma-embed"
+        role="tabpanel"
+        aria-labelledby="tab-research"
+      >
+        <iframe
+          src="https://gamma.app/embed/szio5k6rcot03fb"
+          allow="fullscreen"
+          loading="lazy"
+          title="More Success Academy — Market Research"
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,128 @@
+<!-- ════════════════════════════════════════════════════════
+     sections/footer.html
+     4-column footer with brand, links, contact, socials
+     ════════════════════════════════════════════════════════ -->
+<footer class="border-t border-white/10 py-14" role="contentinfo">
+  <div class="container">
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="#" class="flex items-center gap-3 mb-5 group" aria-label="More Success Academy home">
+          <div class="w-12 h-12 rounded-xl overflow-hidden border border-white/20 transition-transform duration-300 group-hover:scale-105">
+            <img
+              src="assets/images/logo.jpg"
+              alt="More Success Academy logo"
+              width="48"
+              height="48"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="leading-tight">
+            <span class="block font-display text-2xl text-white tracking-widest">MORE SUCCESS</span>
+            <span class="block font-display text-[0.6rem] tracking-[0.32em] text-gold">ACADEMY</span>
+          </div>
+        </a>
+
+        <p class="text-white/50 text-sm leading-relaxed max-w-xs mb-6">
+          Empowering African learners with AI-powered education, career guidance,
+          and the skills to compete and succeed globally.
+        </p>
+
+        <!-- Social Links -->
+        <div class="flex gap-3" role="list" aria-label="Social media links">
+          <a
+            href="https://www.facebook.com/share/1GHvimrohD/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="glass-card glass-card--interactive w-10 h-10 flex items-center justify-center text-white/55 hover:text-white transition-colors"
+            aria-label="Follow us on Facebook (opens in new tab)"
+            role="listitem"
+          >
+            <i class="fab fa-facebook-f text-sm" aria-hidden="true"></i>
+          </a>
+          <a
+            href="mailto:info@moresuccessacademy.com.ng"
+            class="glass-card glass-card--interactive w-10 h-10 flex items-center justify-center text-white/55 hover:text-white transition-colors"
+            aria-label="Send us an email"
+            role="listitem"
+          >
+            <i class="fas fa-envelope text-sm" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <nav aria-label="Footer navigation">
+        <h3 class="font-heading font-bold text-white mb-5 text-sm tracking-wide">Quick Links</h3>
+        <ul class="space-y-3 text-sm" role="list">
+          <li><a href="#features"     class="text-white/50 hover:text-gold transition-colors">Features</a></li>
+          <li><a href="#app-preview"  class="text-white/50 hover:text-gold transition-colors">App Preview</a></li>
+          <li><a href="#how-it-works" class="text-white/50 hover:text-gold transition-colors">How It Works</a></li>
+          <li><a href="#consultation" class="text-white/50 hover:text-gold transition-colors">Consultation</a></li>
+          <li><a href="#faq"          class="text-white/50 hover:text-gold transition-colors">FAQ</a></li>
+          <li><a href="#waitlist"     class="text-white/50 hover:text-gold transition-colors">Join Waitlist</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <address aria-label="Contact information" style="font-style: normal;">
+        <h3 class="font-heading font-bold text-white mb-5 text-sm tracking-wide">Contact</h3>
+        <ul class="space-y-4 text-sm" role="list">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-envelope text-gold mt-0.5 flex-shrink-0" aria-hidden="true"></i>
+            <a
+              href="mailto:info@moresuccessacademy.com.ng"
+              class="text-white/50 hover:text-gold transition-colors break-all"
+            >
+              info@moresuccessacademy.com.ng
+            </a>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-calendar-check text-gold mt-0.5 flex-shrink-0" aria-hidden="true"></i>
+            <a
+              href="https://moresuccessacademy.zohobookings.com/#/customer/4751111000000047014"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/50 hover:text-gold transition-colors"
+              aria-label="Book a consultation (opens in new tab)"
+            >
+              Book a Consultation
+            </a>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fab fa-facebook text-gold mt-0.5 flex-shrink-0" aria-hidden="true"></i>
+            <a
+              href="https://www.facebook.com/share/1GHvimrohD/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/50 hover:text-gold transition-colors"
+              aria-label="Facebook Page (opens in new tab)"
+            >
+              Facebook Page
+            </a>
+          </li>
+        </ul>
+      </address>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-white/28 text-xs font-body">
+      <p>&copy; <span id="footer-year"></span> More Success Academy. All rights reserved.</p>
+      <p class="flex items-center gap-1.5">
+        Built with <i class="fas fa-heart text-red-500" aria-hidden="true"></i> for African Learners
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Inline: auto-update copyright year -->
+<script>
+  const el = document.getElementById('footer-year');
+  if (el) el.textContent = new Date().getFullYear();
+</script>

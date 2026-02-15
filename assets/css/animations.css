@@ -1,0 +1,139 @@
+/* ============================================================
+   animations.css — Keyframes & Motion Utilities
+   ============================================================ */
+
+/* ── Keyframes ───────────────────────────────────────────── */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.08; transform: scale(1); }
+  50%       { opacity: 0.80; transform: scale(1.4); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-18px) rotate(0.8deg); }
+}
+
+@keyframes float-med {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(-0.8deg); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    border-color: rgba(27, 79, 216, 0.30);
+    box-shadow: 0 0 15px rgba(27, 79, 216, 0.15);
+  }
+  50% {
+    border-color: rgba(212, 175, 55, 0.40);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.18);
+  }
+}
+
+@keyframes progress-grow {
+  from { width: 0; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(27, 79, 216, 0.5); }
+  100% { box-shadow: 0 0 0 30px rgba(27, 79, 216, 0); }
+}
+
+/* ── Float Utility Classes ───────────────────────────────── */
+.anim-float-slow { animation: float-slow 6s ease-in-out infinite; }
+.anim-float-med  { animation: float-med  5s ease-in-out infinite; animation-delay: -2s; }
+.anim-float-fast { animation: float-fast 4s ease-in-out infinite; animation-delay: -1s; }
+
+/* ── Spin ─────────────────────────────────────────────────── */
+.anim-spin-slow    { animation: spin-slow    12s linear infinite; }
+.anim-spin-reverse { animation: spin-reverse 18s linear infinite; }
+
+/* ── Shimmer ─────────────────────────────────────────────── */
+.anim-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.07) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+/* ── Intro Animations (hero) ─────────────────────────────── */
+.anim-slide-up   { animation: slide-up  0.9s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.anim-slide-left { animation: slide-left 0.9s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.anim-fade-in    { animation: fade-in   0.7s ease both; }
+
+/* ── Scroll Reveal ───────────────────────────────────────── */
+.reveal,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity var(--transition-reveal), transform var(--transition-reveal);
+}
+
+.reveal       { transform: translateY(28px); }
+.reveal-left  { transform: translateX(-28px); }
+.reveal-right { transform: translateX(28px); }
+
+.reveal.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Staggered Delay Helpers ─────────────────────────────── */
+.delay-100 { transition-delay: 0.10s; }
+.delay-150 { transition-delay: 0.15s; }
+.delay-200 { transition-delay: 0.20s; }
+.delay-250 { transition-delay: 0.25s; }
+.delay-300 { transition-delay: 0.30s; }
+.delay-400 { transition-delay: 0.40s; }
+.delay-500 { transition-delay: 0.50s; }
+
+/* ── Reduced-Motion Override ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

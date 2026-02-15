@@ -1,0 +1,153 @@
+<!-- ════════════════════════════════════════════════════════
+     sections/hero.html
+     Full-height hero with headline, waitlist form, phone mockups
+     ════════════════════════════════════════════════════════ -->
+<section class="section grid-overlay relative min-h-screen flex items-center pt-20" aria-labelledby="hero-heading">
+
+  <!-- Ambient Blobs -->
+  <div class="blob blob--blue w-[600px] h-[600px] -top-20 -left-40 opacity-70" aria-hidden="true"></div>
+  <div class="blob blob--gold w-[420px] h-[420px] top-1/2 right-0 -translate-y-1/2 opacity-80" aria-hidden="true"></div>
+  <div class="blob blob--teal w-[320px] h-[320px] bottom-0 left-1/3 opacity-60" aria-hidden="true"></div>
+
+  <!-- Stars -->
+  <div class="stars-container" aria-hidden="true"></div>
+
+  <div class="container z-content w-full py-16">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-6 items-center">
+
+      <!-- ── LEFT: Copy & Waitlist Form ────────────────────── -->
+      <div class="order-2 lg:order-1 anim-slide-left">
+
+        <p class="section-label mb-6">
+          <i class="fas fa-rocket" aria-hidden="true"></i>
+          The Future of African Education
+        </p>
+
+        <h1 id="hero-heading" class="hero-title mb-6">
+          Learn Smarter.<br />
+          Grow Faster.<br />
+          <span class="text-gold">Succeed Bigger.</span>
+        </h1>
+
+        <p class="section-body mb-8 max-w-lg">
+          Africa&rsquo;s first <strong class="text-white font-semibold">Agentic AI-Powered Learning Management System</strong>
+          &mdash; giving every African learner a personal AI tutor, career roadmap,
+          and the skills to compete globally.
+        </p>
+
+        <!-- Capability Pills -->
+        <div class="flex flex-wrap gap-3 mb-10" role="list" aria-label="Key capabilities">
+          <span class="glass-card px-4 py-2 text-xs font-heading text-white/80 flex items-center gap-2" role="listitem">
+            <i class="fas fa-brain text-royal" aria-hidden="true"></i> AI-Powered Tutoring
+          </span>
+          <span class="glass-card px-4 py-2 text-xs font-heading text-white/80 flex items-center gap-2" role="listitem">
+            <i class="fas fa-road text-gold" aria-hidden="true"></i> Career Roadmaps
+          </span>
+          <span class="glass-card px-4 py-2 text-xs font-heading text-white/80 flex items-center gap-2" role="listitem">
+            <i class="fas fa-certificate text-green-400" aria-hidden="true"></i> Micro-Certifications
+          </span>
+        </div>
+
+        <!-- Waitlist Form -->
+        <div id="waitlist" class="glass-card glass-card--pulse p-6 max-w-lg" aria-label="Waitlist sign-up">
+          <p class="font-heading font-bold text-white text-lg mb-1">Be First. Join the Waitlist.</p>
+          <p class="text-white/50 text-sm mb-5">Get early access + exclusive founding member benefits.</p>
+
+          <form class="js-waitlist-form" novalidate aria-label="Email waitlist form">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <label for="hero-email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="hero-email"
+                name="EMAIL"
+                required
+                autocomplete="email"
+                placeholder="Enter your email address"
+                class="waitlist-input flex-1"
+                aria-label="Email address"
+                aria-required="true"
+              />
+              <button type="submit" class="btn btn--primary btn--md whitespace-nowrap">
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                Get Access
+              </button>
+            </div>
+            <p class="text-white/32 text-xs mt-3">
+              <i class="fas fa-lock mr-1" aria-hidden="true"></i>
+              No spam. Unsubscribe anytime. 100% free.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Phone Mockup Cluster ───────────────────── -->
+      <div class="order-1 lg:order-2 relative flex justify-center items-center" style="min-height: 520px;" aria-hidden="true">
+
+        <!-- Decorative orbit rings -->
+        <div class="absolute w-80 h-80 rounded-full border border-blue-600/20 anim-spin-slow pointer-events-none"></div>
+        <div class="absolute w-64 h-64 rounded-full border border-yellow-500/10 anim-spin-reverse pointer-events-none"></div>
+
+        <!-- Phone: Primary (front-left) -->
+        <div class="phone-frame w-52 anim-float-slow relative z-20" style="margin-right: -28px;">
+          <img
+            src="assets/images/mockup-1.jpg"
+            alt="More Success Academy app dashboard showing skill tree and AI tutor"
+            width="208"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Phone: Secondary (behind-right) -->
+        <div class="phone-frame w-44 anim-float-med relative z-10" style="margin-top: 40px;">
+          <img
+            src="assets/images/mockup-3.jpg"
+            alt="More Success Academy app showing courses and progress"
+            width="176"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Floating stat: Waiting -->
+        <div class="glass-card absolute top-10 left-4 px-4 py-3 anim-float-fast z-30">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-users text-green-400 text-xs" aria-hidden="true"></i>
+            </div>
+            <div>
+              <p class="text-white font-heading font-bold text-sm leading-none">2,400+</p>
+              <p class="text-white/50 text-xs mt-0.5">Waiting</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating stat: AI Tutor -->
+        <div class="glass-card absolute bottom-16 left-0 px-4 py-3 z-30" style="animation: float-slow 6s ease-in-out infinite; animation-delay: -3s;">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-brain text-blue-300 text-xs" aria-hidden="true"></i>
+            </div>
+            <div>
+              <p class="text-white font-heading font-bold text-sm leading-none">AI Tutor</p>
+              <p class="text-white/50 text-xs mt-0.5">Always On</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating stat: Rating -->
+        <div class="glass-card absolute top-1/3 right-0 px-4 py-3 anim-float-med z-30">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-star text-gold text-sm" aria-hidden="true"></i>
+            <p class="text-white font-heading font-bold text-sm">4.9 Rating</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 text-xs font-heading anim-float-fast" aria-hidden="true">
+    <span>SCROLL</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>

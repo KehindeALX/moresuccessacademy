@@ -1,0 +1,13 @@
+{
+  "name": "more-success-academy-waitlist",
+  "version": "1.0.0",
+  "description": "More Success Academy — Waitlist Landing Page",
+  "private": true,
+  "scripts": {
+    "dev":   "npx serve . --listen 3000",
+    "start": "npx serve . --listen 3000"
+  },
+  "keywords": ["msa", "edtech", "africa", "waitlist"],
+  "author": "More Success Academy",
+  "license": "UNLICENSED"
+}

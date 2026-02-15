@@ -1,0 +1,92 @@
+<!-- ════════════════════════════════════════════════════════
+     sections/cta.html
+     Final waitlist CTA with live countdown timer
+     ════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="cta-heading">
+  <div class="blob blob--blue w-[700px] h-[500px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-35" aria-hidden="true"></div>
+
+  <div class="container z-content text-center">
+
+    <!-- Countdown Timer -->
+    <div class="reveal mb-12">
+      <p class="text-white/50 font-heading font-bold text-xs tracking-widest uppercase mb-8">
+        <i class="fas fa-hourglass-half mr-2 text-gold" aria-hidden="true"></i>
+        Launch Countdown
+      </p>
+
+      <div class="flex justify-center gap-4 flex-wrap" role="timer" aria-label="Time until launch">
+        <div class="glass-card countdown-block py-5 px-6">
+          <p class="countdown-value" id="cd-days" aria-label="Days">00</p>
+          <p class="countdown-label">Days</p>
+        </div>
+        <div class="glass-card countdown-block py-5 px-6">
+          <p class="countdown-value" id="cd-hours" aria-label="Hours">00</p>
+          <p class="countdown-label">Hours</p>
+        </div>
+        <div class="glass-card countdown-block py-5 px-6">
+          <p class="countdown-value" id="cd-mins" aria-label="Minutes">00</p>
+          <p class="countdown-label">Minutes</p>
+        </div>
+        <div class="glass-card countdown-block py-5 px-6">
+          <p class="countdown-value" id="cd-secs" aria-label="Seconds">00</p>
+          <p class="countdown-label">Seconds</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <div class="reveal">
+      <p class="section-label section-label--center mb-6">Limited Early Access</p>
+
+      <h2 id="cta-heading" class="font-display text-5xl lg:text-7xl text-white mb-6 leading-tight">
+        Your Future <span class="text-gold">Starts Here.</span>
+      </h2>
+
+      <p class="section-body mb-10 max-w-2xl mx-auto">
+        Join thousands of ambitious Africans already on the waitlist.
+        Get early access, founding member pricing, and lifetime benefits.
+      </p>
+
+      <!-- Bottom Waitlist Form -->
+      <form class="js-waitlist-form max-w-lg mx-auto mb-8" novalidate aria-label="Email waitlist sign-up">
+        <div class="flex flex-col sm:flex-row gap-3 mb-3">
+          <label for="cta-email" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="cta-email"
+            name="EMAIL"
+            required
+            autocomplete="email"
+            placeholder="Your email address"
+            class="waitlist-input flex-1"
+            aria-required="true"
+          />
+          <button type="submit" class="btn btn--gold btn--lg whitespace-nowrap">
+            Join Now <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+          </button>
+        </div>
+        <p class="text-white/30 text-xs">
+          <i class="fas fa-shield-alt mr-1" aria-hidden="true"></i>
+          We respect your privacy. Zero spam. Cancel anytime.
+        </p>
+      </form>
+
+      <!-- Benefit Pills -->
+      <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 mt-8" aria-label="Waitlist benefits">
+        <li class="flex items-center gap-2 text-white/60 text-sm">
+          <i class="fas fa-check-circle text-green-400" aria-hidden="true"></i> Early Access
+        </li>
+        <li class="flex items-center gap-2 text-white/60 text-sm">
+          <i class="fas fa-check-circle text-green-400" aria-hidden="true"></i> Founding Member Pricing
+        </li>
+        <li class="flex items-center gap-2 text-white/60 text-sm">
+          <i class="fas fa-check-circle text-green-400" aria-hidden="true"></i> Priority Onboarding
+        </li>
+        <li class="flex items-center gap-2 text-white/60 text-sm">
+          <i class="fas fa-check-circle text-green-400" aria-hidden="true"></i> Exclusive Webinars
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>More Success Academy — The Future of Learning in Africa</title>
+    <meta
+      name="description"
+      content="Africa's first Agentic AI-Powered Learning Management System. Get a personal AI tutor, career roadmap, and job-ready skills — built for African learners."
+    />
+    <meta name="theme-color" content="#050B2E" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="More Success Academy — The Future of Learning in Africa"
+    />
+    <meta
+      property="og:description"
+      content="An Agentic AI-Powered LMS built for African learners. Join the waitlist."
+    />
+    <meta property="og:image" content="assets/images/logo.jpg" />
+    <meta property="og:url" content="https://moresuccessacademy.com" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="More Success Academy" />
+    <meta
+      name="twitter:description"
+      content="Africa's first Agentic AI-Powered LMS."
+    />
+    <meta name="twitter:image" content="assets/images/logo.jpg" />
+
+    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: "#050B2E",
+              royal: "#1B4FD8",
+              gold: "#D4AF37",
+            },
+            fontFamily: {
+              display: ['"Bebas Neue"', "sans-serif"],
+              heading: ["Syne", "sans-serif"],
+              body: ['"DM Sans"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/animations.css" />
+  </head>
+
+  <body class="bg-navy">
+    <div
+      id="toast"
+      class="glass-card"
+      role="alert"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <i class="fas fa-check-circle toast__icon" aria-hidden="true"></i>
+      <div>
+        <p class="toast__title">You&rsquo;re on the list!</p>
+        <p class="toast__body">We&rsquo;ll notify you at launch.</p>
+      </div>
+      <button
+        id="toast-close"
+        class="toast__close"
+        aria-label="Close notification"
+      >
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="app" role="main">
+      <div
+        id="app-loader"
+        style="
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 1rem;
+        "
+      >
+        <div
+          style="
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(27, 79, 216, 0.3);
+            border-top-color: #1b4fd8;
+            border-radius: 50%;
+            animation: spin-slow 0.9s linear infinite;
+          "
+        ></div>
+        <p
+          style="
+            font-family: &quot;Syne&quot;, sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.12em;
+          "
+        >
+          LOADING
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>
