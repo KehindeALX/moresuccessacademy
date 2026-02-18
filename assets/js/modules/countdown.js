@@ -6,7 +6,7 @@
  */
 
 /** @type {Date} Set this to your actual launch date */
-const LAUNCH_DATE = new Date("2027-06-01T00:00:00");
+const LAUNCH_DATE = new Date("2026-06-01T00:00:00");
 
 const ELEMENT_IDS = {
   days: "cd-days",
