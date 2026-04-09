@@ -329,3 +329,19 @@
   color: var(--color-white);
   margin: 0 auto 1.25rem;
 }
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #050B2E;
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 10px;
+  padding: 8px;
+  min-width: 180px;
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: flex; flex-direction: column; gap: 4px; }
+.nav-dropdown-menu a { color: white; text-decoration: none; padding: 8px 12px; border-radius: 8px; font-size: 13px; }
+.nav-dropdown-menu a:hover { background: rgba(212,175,55,0.1); color: #D4AF37; }
