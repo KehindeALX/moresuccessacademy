@@ -1,3 +1,4 @@
+
 <!-- ════════════════════════════════════════════════════════
      sections/navbar.html
      Fixed navigation bar with scroll effect and mobile menu
@@ -25,7 +26,24 @@
     <!-- Desktop Links -->
     <ul class="hidden lg:flex items-center gap-8 list-none" role="list">
       <li><a href="#features"     class="nav-link">Features</a></li>
-      <li><a href="#app-preview"  class="nav-link">App Preview</a></li>
+
+      <!-- App Preview Dropdown -->
+      <li class="relative group">
+        <button class="nav-link flex items-center gap-1">
+          App Preview <i class="fas fa-chevron-down text-[10px] mt-0.5"></i>
+        </button>
+        <div class="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
+          <div class="bg-navy border border-gold/20 rounded-xl p-2 min-w-[190px] shadow-2xl">
+            <a href="#app-preview" class="flex items-center gap-2 text-white/75 font-heading py-2 px-3 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
+              <i class="fas fa-robot text-gold/70"></i> MSA AI Demo
+            </a>
+            <a href="/speak-pro.html" class="flex items-center gap-2 text-white/75 font-heading py-2 px-3 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
+              <i class="fas fa-microphone text-gold/70"></i> Speak Pro
+            </a>
+          </div>
+        </div>
+      </li>
+
       <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
       <li><a href="#consultation" class="nav-link">Consultation</a></li>
       <li><a href="#faq"          class="nav-link">FAQ</a></li>
@@ -53,20 +71,22 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu" role="navigation" aria-label="Mobile menu">
     <div class="container pt-4 pb-6 flex flex-col gap-2 border-t border-white/10 mt-4">
-      <a href="#features"     class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
+      <a href="#features" class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
         <i class="fas fa-stars mr-2 text-gold/70"></i> Features
       </a>
-      <a href="#app-preview"  class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
-        <i class="fas fa-mobile-alt mr-2 text-gold/70"></i> App Preview
+      <a href="#app-preview" class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
+        <i class="fas fa-mobile-alt mr-2 text-gold/70"></i> MSA AI Demo
       </a>
-<a href="/speak-pro.html">Speak Pro</a>
+      <a href="/speak-pro.html" class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
+        <i class="fas fa-microphone mr-2 text-gold/70"></i> Speak Pro
+      </a>
       <a href="#how-it-works" class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
         <i class="fas fa-route mr-2 text-gold/70"></i> How It Works
       </a>
       <a href="#consultation" class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
         <i class="fas fa-headset mr-2 text-gold/70"></i> Consultation
       </a>
-      <a href="#faq"          class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
+      <a href="#faq" class="text-white/75 font-heading py-2.5 px-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all text-sm">
         <i class="fas fa-question-circle mr-2 text-gold/70"></i> FAQ
       </a>
       <a href="#waitlist" class="btn btn--gold btn--md mt-3 w-full justify-center">
