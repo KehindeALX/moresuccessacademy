@@ -4,9 +4,7 @@
      ════════════════════════════════════════════════════════ -->
 <section id="app-preview" class="section" aria-labelledby="preview-heading">
   <div class="blob blob--gold w-[500px] h-[400px] left-0 top-1/2 -translate-y-1/2 opacity-20" aria-hidden="true"></div>
-
   <div class="container z-content">
-
     <div class="max-w-2xl mx-auto text-center mb-16 reveal">
       <p class="section-label section-label--center mb-4">Product Preview</p>
       <h2 id="preview-heading" class="section-title mb-5">
@@ -44,63 +42,21 @@
           loading="lazy"
         />
       </div>
-    </div>
-
-    <!-- Gamma Embeds with Tab Switcher -->
-    <div class="reveal">
-
-      <!-- Tab Buttons -->
-      <div class="flex flex-wrap gap-3 justify-center mb-6" role="tablist" aria-label="Platform documents">
-        <button
-          class="tab-btn is-active"
-          role="tab"
-          data-tab="tab-overview"
-          aria-selected="true"
-          aria-controls="tab-overview"
-        >
-          <i class="fas fa-file-alt mr-2" aria-hidden="true"></i>Platform Overview
-        </button>
-        <button
-          class="tab-btn"
-          role="tab"
-          data-tab="tab-research"
-          aria-selected="false"
-          aria-controls="tab-research"
-        >
-          <i class="fas fa-chart-bar mr-2" aria-hidden="true"></i>Market Research
-        </button>
       </div>
-
-      <!-- Tab Panels -->
-      <div
-        id="tab-overview"
-        class="tab-panel is-active gamma-embed"
-        role="tabpanel"
-        aria-labelledby="tab-overview"
-      >
-        <iframe
-          src="https://gamma.app/embed/ss4pn2nv5msyqlt"
-          allow="fullscreen"
-          loading="lazy"
-          title="More Success Academy — Platform Overview"
-        ></iframe>
-      </div>
-    <div
-        id="tab-research"
-        class="tab-panel gamma-embed"
-        role="tabpanel"
-        aria-labelledby="tab-research"
-      >
-        <iframe
-          src="https://gamma.app/embed/szio5k6rcot03fb"
-          allow="fullscreen"
-          loading="lazy"
-          title="More Success Academy — Market Research"
-        ></iframe>
-      </div>
-
-    </div>
-
+   <!-- Library / Archive link (replaces the old Gamma embeds) -->
+<div class="reveal text-center" style="margin-bottom:20px;">
+  <p class="section-label section-label--center mb-4">Platform Documents</p>
+  <h3 class="section-title mb-4">
+    See Our <span class="text-gold">Progress So Far</span>
+  </h3>
+  <p class="section-body mb-6">
+    Our platform overview, market research, and full project archive are kept
+    in one place — including our admissions journey, testimonials, and past programs.
+  </p>
+  <a href="/library.html" class="btn btn--gold btn--md">
+    <i class="fas fa-archive" aria-hidden="true"></i> Open the Library &amp; Archive
+  </a>
+</div>     
     <!-- MSA AI Live Demo -->
     <div class="reveal" style="margin-top:60px;">
       <div class="max-w-2xl mx-auto text-center mb-8">
