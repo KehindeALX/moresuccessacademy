@@ -38,7 +38,6 @@ const SECTIONS = [
   'consultation',
   'faq',
   'cta',
-  'mentorship-cta',
   'footer',
 ];
 
