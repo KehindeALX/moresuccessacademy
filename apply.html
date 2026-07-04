@@ -9,12 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#14213D;
-    --navy-deep:#0D1730;
+    --navy:#050B2E;
+    --navy-deep:#03071A;
     --cream:#FBF7EF;
     --paper:#FFFDF8;
-    --gold:#B8862B;
-    --gold-light:#D9B65E;
+    --gold:#D4AF37;
+    --gold-light:#E6C666;
     --burgundy:#6E2C2C;
     --teal:#1F4B43;
     --ink:#22252B;
@@ -829,11 +829,11 @@
     var area = document.getElementById('printArea');
     area.innerHTML = '';
     var header = document.createElement('div');
-    header.style.borderBottom = '3px solid #B8862B';
+    header.style.borderBottom = '3px solid #D4AF37';
     header.style.paddingBottom = '14px';
     header.style.marginBottom = '18px';
-    header.innerHTML = '<div style="font-family:Fraunces,serif;font-size:22px;font-weight:600;color:#14213D;">More Success Academy</div>' +
-      '<div style="font-family:monospace;font-size:11px;letter-spacing:1px;color:#B8862B;text-transform:uppercase;">Global Admissions &amp; Scholarship Mentorship — Intake Summary</div>' +
+    header.innerHTML = '<div style="font-family:Fraunces,serif;font-size:22px;font-weight:600;color:#050B2E;">More Success Academy</div>' +
+      '<div style="font-family:monospace;font-size:11px;letter-spacing:1px;color:#D4AF37;text-transform:uppercase;">Global Admissions &amp; Scholarship Mentorship — Intake Summary</div>' +
       '<div style="font-family:monospace;font-size:10px;color:#666;margin-top:4px;">Generated: ' + new Date().toLocaleDateString() + '</div>';
     area.appendChild(header);
     blocks.forEach(function(b){
@@ -842,7 +842,7 @@
       h.style.fontSize = '11px';
       h.style.letterSpacing = '1px';
       h.style.textTransform = 'uppercase';
-      h.style.color = '#B8862B';
+      h.style.color = '#D4AF37';
       h.style.borderBottom = '1px solid #DCD4C2';
       h.style.paddingBottom = '6px';
       h.style.marginTop = '18px';
