@@ -33,6 +33,7 @@ const SECTIONS = [
   'stats',
   'problem',
   'features',
+  'programs',
   'app-preview',
   'how-it-works',
   'consultation',
