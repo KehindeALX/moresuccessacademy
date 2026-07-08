@@ -1,0 +1,196 @@
+<!-- sections/programs.html
+     Condensed 8-program grid for the homepage. Full interactive version
+     with filters and expandable detail lives at /services.html — this is
+     the teaser that funnels there.
+     Uses the same custom icon set as services.html for consistency. -->
+
+<section class="msa-programs">
+  <style>
+    .msa-programs{
+      background: #050B2E;
+      padding: 90px 24px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .msa-programs .wrap{ max-width: 1180px; margin: 0 auto; }
+    .msa-programs .head{ text-align: center; max-width: 640px; margin: 0 auto 44px; }
+    .msa-programs .eyebrow{
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 3px; color: #D4AF37; font-size: 13px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .msa-programs h2{
+      font-family: 'Syne', sans-serif; font-weight: 700; color: #fff;
+      font-size: clamp(30px,4vw,48px); margin: 0 0 14px; line-height: 1.15;
+    }
+    .msa-programs .sub{ color: rgba(255,255,255,0.55); font-size: 15.5px; }
+    .msa-grid{
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    }
+    .msa-card{
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px; padding: 22px 20px; text-decoration: none; display: block;
+      transition: all .25s ease;
+    }
+    .msa-card:hover{ border-color: rgba(212,175,55,0.35); transform: translateY(-3px); }
+    .msa-icon{
+      width: 46px; height: 46px; border-radius: 12px;
+      background: rgba(212,175,55,0.08); border: 1.5px solid rgba(212,175,55,0.22);
+      display: flex; align-items: center; justify-content: center; color: #D4AF37;
+      margin-bottom: 14px;
+    }
+    .msa-icon svg{ width: 26px; height: 26px; }
+    .msa-card h3{
+      font-family: 'Syne', sans-serif; font-weight: 700; color: #fff;
+      font-size: 14.5px; margin: 0 0 6px; line-height: 1.3;
+    }
+    .msa-card p{
+      color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.55; margin: 0 0 12px;
+    }
+    .msa-status{
+      display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.5px;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 10px; margin-bottom: 10px;
+    }
+    .msa-status.live{ background: rgba(46,131,104,0.18); color: #5fe0b8; border: 1px solid rgba(46,131,104,0.4); }
+    .msa-status.demo{ background: rgba(27,79,216,0.18); color: #7eb3ff; border: 1px solid rgba(27,79,216,0.4); }
+    .msa-card .go{ font-size: 11.5px; font-weight: 700; color: #D4AF37; display: flex; align-items: center; gap: 5px; }
+    .msa-cta-row{ text-align: center; margin-top: 40px; }
+    .msa-cta-row a{
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #D4AF37; color: #000; font-weight: 800; font-size: 14px;
+      padding: 13px 28px; border-radius: 9px; text-decoration: none; transition: all .2s;
+    }
+    .msa-cta-row a:hover{ background: #F5C842; transform: translateY(-2px); }
+    @media(max-width: 980px){ .msa-grid{ grid-template-columns: repeat(2,1fr); } }
+    @media(max-width: 560px){ .msa-grid{ grid-template-columns: 1fr; } }
+  </style>
+
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Our Programs</p>
+      <h2>Everything MSA Offers</h2>
+      <p class="sub">Training, mentorship, and AI-powered tools built for African learners — explore what's live today.</p>
+    </div>
+
+    <div class="msa-grid">
+
+      <a href="https://wa.me/2348149360338?text=Hi!%20I'm%20interested%20in%20the%20AI%20Career%20Roadmap" target="_blank" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="9" cy="38" r="4" stroke="currentColor" stroke-width="2"/>
+  <path d="M12,36 C18,30 16,22 24,20 C32,18 30,10 36,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 5"/>
+  <path d="M36,8 L40,4 M36,8 L40,10 M36,8 L32,6" stroke="#1B4FD8" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="24" cy="20" r="2" fill="currentColor"/>
+</svg></div>
+        <span class="msa-status live">Available</span>
+        <h3>AI Career Roadmap</h3>
+        <p>A personalized, AI-powered path to the right career for your skills and goals.</p>
+        <span class="go">Ask about this <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="https://wa.me/2348149360338?text=Hi!%20I'm%20interested%20in%20AI%20%26%20Digital%20Skills%20Training" target="_blank" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="7" y="10" width="34" height="22" rx="3" stroke="currentColor" stroke-width="2"/>
+  <path d="M4,38 L44,38 L40,32 L8,32 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="13" y="24" width="4" height="4" fill="currentColor"/>
+  <rect x="20" y="19" width="4" height="9" fill="currentColor"/>
+  <rect x="27" y="15" width="4" height="13" fill="#1B4FD8"/>
+  <path d="M31,13 L34,10 M34,10 L32,10 M34,10 L34,12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+</svg></div>
+        <span class="msa-status live">Available</span>
+        <h3>AI & Digital Skills Training</h3>
+        <p>Practical, project-based training in today's most in-demand tech skills.</p>
+        <span class="go">Ask about this <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="/apply.html" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="21" cy="28" r="12" stroke="currentColor" stroke-width="2"/>
+  <path d="M9,28 L33,28 M21,16 L21,40 M12,20 C16,24 26,24 30,20 M12,36 C16,32 26,32 30,36" stroke="currentColor" stroke-width="1.3" opacity="0.6"/>
+  <path d="M18,10 L32,15 L18,20 L4,15 Z" fill="#1B4FD8" stroke="#1B4FD8" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M32,15 L32,21" stroke="#1B4FD8" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="32" cy="23" r="1.6" fill="#1B4FD8"/>
+</svg></div>
+        <span class="msa-status live">Live Now</span>
+        <h3>University Admissions & Scholarships</h3>
+        <p>Real mentorship for international admissions and scholarship applications.</p>
+        <span class="go">Apply for mentorship <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="https://wa.me/2348149360338?text=Hi!%20I'm%20interested%20in%20Career%20Coaching%20%26%20CV%20Review" target="_blank" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="6" width="24" height="32" rx="2.5" stroke="currentColor" stroke-width="2"/>
+  <path d="M15,14 L29,14 M15,20 L29,20 M15,26 L23,26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="32" cy="33" r="9" fill="#050B2E" stroke="#1B4FD8" stroke-width="2"/>
+  <path d="M28,33 L31,36 L37,29" stroke="#1B4FD8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+        <span class="msa-status live">Available</span>
+        <h3>Career Coaching & CV Review</h3>
+        <p>CV optimization, LinkedIn enhancement, and interview coaching to get job-ready.</p>
+        <span class="go">Ask about this <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="https://wa.me/2348149360338?text=Hi!%20I'm%20interested%20in%20Cybersecurity%20Training" target="_blank" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M24,5 L40,11 L40,23 C40,33 33,40 24,43 C15,40 8,33 8,23 L8,11 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="18" y="22" width="12" height="10" rx="2" stroke="#1B4FD8" stroke-width="2"/>
+  <path d="M20,22 L20,18 C20,15 22,13 24,13 C26,13 28,15 28,18 L28,22" stroke="#1B4FD8" stroke-width="2"/>
+  <circle cx="24" cy="27" r="1.6" fill="#1B4FD8"/>
+</svg></div>
+        <span class="msa-status live">Available</span>
+        <h3>Cybersecurity Training</h3>
+        <p>Hands-on training in ethical hacking, network security, and cyber defense.</p>
+        <span class="go">Ask about this <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="https://wa.me/2348149360338?text=Hi!%20I'm%20interested%20in%20CAC%20Business%20Registration" target="_blank" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6,18 L24,7 L42,18 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M8,18 L8,36 M16,18 L16,36 M24,18 L24,36 M32,18 L32,36 M40,18 L40,36" stroke="currentColor" stroke-width="1.8"/>
+  <path d="M5,36 L43,36 L43,40 L5,40 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="36" cy="30" r="8" fill="#050B2E" stroke="#1B4FD8" stroke-width="2"/>
+  <path d="M33,30 L35.5,32.5 L40,27" stroke="#1B4FD8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+        <span class="msa-status live">Available</span>
+        <h3>CAC Business Registration</h3>
+        <p>Fast, legal business registration with CAC and post-registration support.</p>
+        <span class="go">Ask about this <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="/speakpro-demo.html" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="6" y="8" width="32" height="22" rx="8" stroke="currentColor" stroke-width="2"/>
+  <path d="M14,36 L14,30 M12,38 L20,30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <rect x="15" y="15" width="3" height="8" rx="1.5" fill="#1B4FD8"/>
+  <rect x="20.5" y="12" width="3" height="14" rx="1.5" fill="currentColor"/>
+  <rect x="26" y="16" width="3" height="6" rx="1.5" fill="#1B4FD8"/>
+  <circle cx="38" cy="10" r="5" fill="#050B2E" stroke="#D4AF37" stroke-width="1.5"/>
+  <path d="M36,10 a2,2 0 1 1 4,0 a2,2 0 1 1 -4,0" stroke="#D4AF37" stroke-width="1.2"/>
+</svg></div>
+        <span class="msa-status demo">Demo Available</span>
+        <h3>SpeakPro AI</h3>
+        <p>An AI communication coach helping professionals win clients with confidence.</p>
+        <span class="go">Try the live demo <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+      <a href="/demo.html" class="msa-card">
+        <div class="msa-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="6" y="8" width="36" height="24" rx="2.5" stroke="currentColor" stroke-width="2"/>
+  <path d="M2,36 L46,36 L42,32 L6,32 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M24,14 L24,26 M18,17 L18,23 M30,17 L30,23 M14,20 L18,20 M30,20 L34,20" stroke="#1B4FD8" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="24" cy="14" r="2.4" fill="#D4AF37"/>
+  <circle cx="18" cy="20" r="1.8" fill="#1B4FD8"/>
+  <circle cx="30" cy="20" r="1.8" fill="#1B4FD8"/>
+  <circle cx="24" cy="26" r="1.8" fill="#1B4FD8"/>
+</svg></div>
+        <span class="msa-status demo">Demo Available</span>
+        <h3>Agentic AI LMS</h3>
+        <p>Africa's first Agentic AI-powered learning platform — preview the vision.</p>
+        <span class="go">Preview the ecosystem <i class="fas fa-arrow-right"></i></span>
+      </a>
+
+    </div>
+
+    <div class="msa-cta-row">
+      <a href="/services.html"><i class="fas fa-th-large"></i> View All Programs & Full Details</a>
+    </div>
+  </div>
+</section>
