@@ -554,6 +554,19 @@
     exitScenario: function(){ state.screen = 'scenarios'; render(); }
   };
 
+  // Deep-link support: /speakpro-demo.html?scenario=brakes jumps straight into that trainer
+  var params = new URLSearchParams(window.location.search);
+  var linkedScenario = params.get('scenario');
+  if(linkedScenario){
+    var match = scenarios.filter(function(s){ return s.id === linkedScenario && s.available; })[0];
+    if(match){
+      state.scenarioId = linkedScenario;
+      state.stepIndex = 0;
+      state.stepResults = [];
+      state.screen = 'trainer';
+    }
+  }
+
   render();
 })();
 </script>
