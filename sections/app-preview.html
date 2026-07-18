@@ -1,6 +1,6 @@
 <!-- ════════════════════════════════════════════════════════
      sections/app-preview.html
-     Phone mockup gallery + tabbed Gamma embed panels
+     Phone mockup gallery + AcadBot AI Demo
      ════════════════════════════════════════════════════════ -->
 <section id="app-preview" class="section" aria-labelledby="preview-heading">
   <div class="blob blob--gold w-[500px] h-[400px] left-0 top-1/2 -translate-y-1/2 opacity-20" aria-hidden="true"></div>
@@ -42,40 +42,148 @@
           loading="lazy"
         />
       </div>
-      </div>
-   <!-- Library / Archive link (replaces the old Gamma embeds) -->
-<div class="reveal text-center" style="margin-bottom:20px;">
-  <p class="section-label section-label--center mb-4">Platform Documents</p>
-  <h3 class="section-title mb-4">
-    See Our <span class="text-gold">Progress So Far</span>
-  </h3>
-  <p class="section-body mb-6">
-    Our platform overview, market research, and full project archive are kept
-    in one place — including our admissions journey, testimonials, and past programs.
-  </p>
-  <a href="/library.html" class="btn btn--gold btn--md">
-    <i class="fas fa-archive" aria-hidden="true"></i> Open the Library &amp; Archive
-  </a>
-</div>     
-    <!-- MSA AI Live Demo -->
-    <div class="reveal" style="margin-top:60px;">
-      <div class="max-w-2xl mx-auto text-center mb-8">
-        <p class="section-label section-label--center mb-4">Interactive Demo</p>
+    </div>
+
+    <!-- Library / Archive link -->
+    <div class="reveal text-center" style="margin-bottom:60px;">
+      <p class="section-label section-label--center mb-4">Platform Documents</p>
+      <h3 class="section-title mb-4">
+        See Our <span class="text-gold">Progress So Far</span>
+      </h3>
+      <p class="section-body mb-6">
+        Our platform overview, market research, and full project archive are kept
+        in one place &mdash; including our admissions journey, testimonials, and past programs.
+      </p>
+      <a href="/library.html" class="btn btn--gold btn--md">
+        <i class="fas fa-archive" aria-hidden="true"></i> Open the Library &amp; Archive
+      </a>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         MSA AI LIVE DEMO — anchor for menu jump
+         ══════════════════════════════════════════ -->
+    <div id="msa-ai-demo" class="reveal" style="scroll-margin-top:80px;">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <p class="section-label section-label--center mb-4">Live Interactive Demo</p>
         <h3 class="section-title mb-4">
-          Try <span class="text-gold">MSA AI</span> Live
+          Meet <span class="text-gold">Abia</span> &mdash; Your AI Career Guide
         </h3>
-        <p class="section-body">Explore all 7 app screens — tap to interact</p>
+        <p class="section-body">
+          Choose a career path. Abia maps your roadmap, checks your skills,
+          preps you for interviews &mdash; in any language. Try it now.
+        </p>
       </div>
-      <iframe
-        src="https://kehindealx.github.io/msa-app-demo/"
-        width="100%"
-        height="850px"
-        frameborder="0"
-        loading="lazy"
-        style="border-radius:16px; max-width:1100px; display:block; margin:0 auto;"
-        title="MSA AI App Demo">
-      </iframe>
+
+      <!-- Demo card wrapper -->
+      <div style="
+        max-width:900px;
+        margin:0 auto;
+        background:rgba(255,255,255,0.03);
+        border:1px solid rgba(212,175,55,0.2);
+        border-radius:20px;
+        overflow:hidden;
+        box-shadow:0 24px 64px rgba(0,0,0,0.4);
+      ">
+        <!-- Demo header bar -->
+        <div style="
+          background:rgba(5,11,46,0.95);
+          padding:14px 20px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          border-bottom:1px solid rgba(212,175,55,0.15);
+        ">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="display:flex;gap:6px;">
+              <div style="width:12px;height:12px;border-radius:50%;background:#FF5F57;"></div>
+              <div style="width:12px;height:12px;border-radius:50%;background:#FEBC2E;"></div>
+              <div style="width:12px;height:12px;border-radius:50%;background:#28C840;"></div>
+            </div>
+            <span style="color:rgba(255,255,255,0.4);font-size:12px;font-family:'DM Sans',sans-serif;">kehindealx.github.io/acadbot_demo</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="
+              display:inline-flex;align-items:center;gap:5px;
+              background:rgba(212,175,55,0.12);
+              border:1px solid rgba(212,175,55,0.3);
+              border-radius:20px;padding:4px 12px;
+              color:#D4AF37;font-size:11px;font-weight:600;
+              font-family:'DM Sans',sans-serif;letter-spacing:0.5px;
+            ">
+              <span style="width:6px;height:6px;border-radius:50%;background:#00C9B1;display:inline-block;animation:pulse 2s infinite;"></span>
+              LIVE · AI-Powered
+            </span>
+          </div>
+        </div>
+
+        <!-- Iframe -->
+        <iframe
+          src="https://kehindealx.github.io/acadbot_demo/"
+          width="100%"
+          height="780px"
+          frameborder="0"
+          loading="lazy"
+          allow="microphone"
+          title="AcadBot — MSA AI Career Guide by Abia"
+          style="display:block;background:#050B2E;"
+        ></iframe>
+
+        <!-- Demo footer -->
+        <div style="
+          background:rgba(5,11,46,0.95);
+          padding:14px 20px;
+          border-top:1px solid rgba(212,175,55,0.15);
+          display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+        ">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <i class="fas fa-robot" style="color:#D4AF37;font-size:14px;"></i>
+            <span style="color:rgba(255,255,255,0.5);font-size:12px;font-family:'DM Sans',sans-serif;">
+              Powered by <strong style="color:#D4AF37;">Abia</strong> &mdash; MSA Agentic AI Tutor
+            </span>
+          </div>
+          <a
+            href="https://kehindealx.github.io/acadbot_demo/"
+            target="_blank"
+            rel="noopener"
+            style="
+              color:#D4AF37;font-size:12px;font-family:'DM Sans',sans-serif;
+              text-decoration:none;display:flex;align-items:center;gap:5px;
+            "
+          >
+            Open full screen <i class="fas fa-external-link-alt" style="font-size:10px;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature pills -->
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px;">
+        <span style="padding:6px 16px;border-radius:20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);color:rgba(212,175,55,0.9);font-size:12px;font-family:'DM Sans',sans-serif;">
+          🗺️ Career Roadmaps
+        </span>
+        <span style="padding:6px 16px;border-radius:20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);color:rgba(212,175,55,0.9);font-size:12px;font-family:'DM Sans',sans-serif;">
+          ✅ Skills Assessment
+        </span>
+        <span style="padding:6px 16px;border-radius:20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);color:rgba(212,175,55,0.9);font-size:12px;font-family:'DM Sans',sans-serif;">
+          🎯 Interview Prep
+        </span>
+        <span style="padding:6px 16px;border-radius:20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);color:rgba(212,175,55,0.9);font-size:12px;font-family:'DM Sans',sans-serif;">
+          🎤 SpeakPro Coach
+        </span>
+        <span style="padding:6px 16px;border-radius:20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);color:rgba(212,175,55,0.9);font-size:12px;font-family:'DM Sans',sans-serif;">
+          🌍 Multilingual AI
+        </span>
+        <span style="padding:6px 16px;border-radius:20px;background:rgba(0,201,177,0.1);border:1px solid rgba(0,201,177,0.25);color:rgba(0,201,177,0.9);font-size:12px;font-family:'DM Sans',sans-serif;">
+          🔊 Voice Input + Output
+        </span>
+      </div>
     </div>
 
   </div>
-</section> 
+</section>
+
+<style>
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+</style>
