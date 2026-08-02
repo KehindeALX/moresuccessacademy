@@ -49,23 +49,12 @@
     align-items:center;
     gap:14px;
   }
-  .crest{
+  .crest-img{
     width:44px;height:44px;border-radius:50%;
     border:2px solid var(--gold-light);
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--display);
-    font-weight:700;
-    font-size:16px;
-    color:var(--gold-light);
+    object-fit:cover;
     flex-shrink:0;
-    position:relative;
-  }
-  .crest::after{
-    content:"";
-    position:absolute;
-    inset:-6px;
-    border:1px dashed rgba(217,182,94,0.4);
-    border-radius:50%;
+    background:var(--navy-deep);
   }
   .brand-text .name{
     font-family:var(--display);
@@ -330,6 +319,7 @@
     border:none;
     transition:all 0.15s ease;
   }
+  button:disabled{opacity:0.55;cursor:not-allowed;}
   .btn-primary{
     background:var(--navy);
     color:var(--cream);
@@ -379,6 +369,110 @@
     background:rgba(184,134,43,0.07);
   }
 
+  /* ===== Journey roadmap (welcome hero) ===== */
+  .journey-map{
+    margin:6px 0 30px;
+    max-width:620px;
+  }
+  .journey-svg{width:100%;height:auto;display:block;}
+  .journey-road{
+    stroke-dasharray:2 9;
+    animation:roadCrawl 2.4s linear infinite;
+  }
+  @keyframes roadCrawl{ to{ stroke-dashoffset:-33; } }
+  .journey-label{
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:0.4px;
+    fill:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .journey-endpoint-label{
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:0.6px;
+    fill:var(--navy);
+    font-weight:700;
+    text-transform:uppercase;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .journey-road{animation:none;}
+  }
+
+  /* ===== Service carousel (welcome hero) ===== */
+  .service-carousel{
+    display:flex;
+    align-items:stretch;
+    gap:12px;
+    margin-bottom:32px;
+    max-width:620px;
+  }
+  .carousel-arrow{
+    flex:0 0 auto;
+    width:34px;height:34px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    background:#fff;
+    color:var(--navy);
+    font-size:15px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    align-self:center;
+    transition:all 0.15s ease;
+    padding:0;
+  }
+  .carousel-arrow:hover{border-color:var(--gold);background:rgba(184,134,43,0.08);}
+  .carousel-viewport{
+    flex:1;
+    overflow:hidden;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    position:relative;
+    min-height:92px;
+  }
+  .carousel-card{
+    padding:16px 18px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    animation:cardFade 0.35s ease;
+  }
+  @keyframes cardFade{
+    from{opacity:0; transform:translateX(8px);}
+    to{opacity:1; transform:translateX(0);}
+  }
+  .carousel-number{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gold);
+    border:1.5px solid var(--gold);
+    border-radius:50%;
+    width:30px;height:30px;
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .carousel-copy .carousel-title{
+    font-family:var(--display);
+    font-size:16px;
+    font-weight:600;
+    color:var(--navy);
+    margin-bottom:3px;
+  }
+  .carousel-copy .carousel-desc{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.4;
+  }
+  .carousel-dots{display:flex;gap:6px;justify-content:center;margin-top:10px;max-width:620px;}
+  .carousel-dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--line);
+    border:none;padding:0;cursor:pointer;
+    transition:all 0.2s ease;
+  }
+  .carousel-dot.active{background:var(--gold);width:18px;border-radius:3px;}
+
   /* ===== Review ===== */
   .review-block{margin-bottom:26px;}
   .review-block h3{
@@ -424,6 +518,8 @@
     letter-spacing:0.5px;
     margin-bottom:24px;
   }
+  .seal.error{background:var(--burgundy);}
+  .seal.pending{background:var(--ink-soft);}
 
   .download-row{
     display:flex;
@@ -450,7 +546,7 @@
 
 <div class="coverbar">
   <div class="brand">
-    <div class="crest">MSA</div>
+    <img class="crest-img" src="https://moresuccessacademy.com.ng/assets/images/logo.jpg" alt="More Success Academy logo">
     <div class="brand-text">
       <div class="name">More Success Academy</div>
       <div class="motto">Achieving Educational &amp; Career Milestones</div>
@@ -473,6 +569,11 @@
 
 <script>
 (function(){
+
+  // TODO: replace with your real Formspree endpoint (or Zoho Flow webhook URL)
+  // Create one free at https://formspree.io — sign up, "New Form", copy the
+  // endpoint that looks like https://formspree.io/f/xxxxxxxx and paste it below.
+  var SUBMIT_ENDPOINT = 'https://formspree.io/f/xzdlobpq';
 
   var stageDefs = [
     {key:'welcome', label:'Welcome'},
@@ -500,6 +601,7 @@
     consentComms:false, consentAccuracy:false, signature:''
   };
 
+  var submitStatus = 'idle'; // idle | sending | sent | error
   var currentIndex = 0;
   var maxReached = 0;
 
@@ -610,6 +712,149 @@
     return wrap;
   }
 
+  function svgEl(tag, attrs){
+    var e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    if(attrs) for(var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  // A small illustrated road from a school building to a graduation cap —
+  // the shape of the whole intake, at a glance.
+  function buildJourneyMap(){
+    var wrap = el('div', {class:'journey-map'});
+    var svg = svgEl('svg', {viewBox:'0 0 600 120', class:'journey-svg', role:'img', 'aria-label':'Illustration of the journey from starting school to graduating abroad'});
+
+    var roadPath = 'M54,78 C150,20 210,110 300,66 C380,30 430,92 546,40';
+
+    // dashed road
+    svg.appendChild(svgEl('path', {
+      d: roadPath, fill:'none', stroke:'var(--gold)', 'stroke-width':'2.5',
+      'stroke-linecap':'round', class:'journey-road'
+    }));
+
+    // three waypoint stamps along the road
+    [ {cx:190, cy:47, n:'1'}, {cx:300, cy:66, n:'2'}, {cx:420, cy:52, n:'3'} ].forEach(function(pt){
+      var g = svgEl('g', {});
+      g.appendChild(svgEl('circle', {cx:pt.cx, cy:pt.cy, r:9, fill:'#FFFDF8', stroke:'var(--gold)', 'stroke-width':'1.5'}));
+      var t = svgEl('text', {x:pt.cx, y:pt.cy+3.5, 'text-anchor':'middle', class:'journey-label', style:'font-weight:700;fill:var(--burgundy);'});
+      t.textContent = pt.n;
+      g.appendChild(t);
+      svg.appendChild(g);
+    });
+
+    // building icon (start — where the journey begins)
+    var building = svgEl('g', {transform:'translate(24,52)'});
+    building.appendChild(svgEl('rect', {x:0,y:0,width:32,height:28,fill:'var(--navy)',rx:'1.5'}));
+    building.appendChild(svgEl('polygon', {points:'-3,0 35,0 16,-13', fill:'var(--navy)'}));
+    [4,13,22].forEach(function(x){
+      building.appendChild(svgEl('rect', {x:x, y:7, width:6, height:6, fill:'var(--gold-light)'}));
+    });
+    building.appendChild(svgEl('rect', {x:13, y:17, width:6, height:11, fill:'var(--gold-light)'}));
+    svg.appendChild(building);
+    var startLabel = svgEl('text', {x:40, y:100, class:'journey-endpoint-label', 'text-anchor':'middle'});
+    startLabel.textContent = 'You, today';
+    svg.appendChild(startLabel);
+
+    // graduation cap icon (end — where the journey leads)
+    var cap = svgEl('g', {transform:'translate(524,16)'});
+    cap.appendChild(svgEl('polygon', {points:'12,0 24,6 12,12 0,6', fill:'var(--navy)'}));
+    cap.appendChild(svgEl('rect', {x:8, y:6, width:8, height:6, fill:'var(--navy)'}));
+    cap.appendChild(svgEl('line', {x1:22, y1:6, x2:22, y2:16, stroke:'var(--navy)', 'stroke-width':'1.2'}));
+    cap.appendChild(svgEl('circle', {cx:22, cy:17, r:1.8, fill:'var(--gold)'}));
+    svg.appendChild(cap);
+    var endLabel = svgEl('text', {x:536, y:44, class:'journey-endpoint-label', 'text-anchor':'middle'});
+    endLabel.textContent = 'Graduate abroad';
+    svg.appendChild(endLabel);
+
+    // a small traveller dot animating along the same road
+    var traveller = svgEl('circle', {r:4, fill:'var(--burgundy)'});
+    var motion = svgEl('animateMotion', {dur:'7s', repeatCount:'indefinite', path: roadPath, rotate:'0'});
+    traveller.appendChild(motion);
+    svg.appendChild(traveller);
+
+    wrap.appendChild(svg);
+    return wrap;
+  }
+
+  var carouselServices = [
+    {title:'School Selection', desc:'A shortlist matched to your grades, budget, and target countries.'},
+    {title:'Scholarships', desc:'Awards you actually qualify for — merit, need, and institutional.'},
+    {title:'SOP Writing', desc:'A statement of purpose admissions officers actually remember.'},
+    {title:'CV Optimisation', desc:'Your experience, positioned the way international programs read it.'},
+    {title:'Funding Strategy', desc:'Tuition and living costs mapped against real funding sources.'},
+    {title:'Visa Preparation', desc:'Documents and interview-readiness for your visa application.'},
+    {title:'Career Positioning', desc:'Study choices aligned to the job market you are graduating into.'}
+  ];
+  var carouselIndex = 0;
+  var carouselTimer = null;
+
+  function stopCarouselAutoplay(){
+    if(carouselTimer){ clearInterval(carouselTimer); carouselTimer = null; }
+  }
+
+  function buildServiceCarousel(){
+    var wrap = el('div', {});
+    var row = el('div', {class:'service-carousel'});
+    var prev = el('button', {class:'carousel-arrow', type:'button', 'aria-label':'Previous service'}, [document.createTextNode('‹')]);
+    var viewport = el('div', {class:'carousel-viewport'});
+    var next = el('button', {class:'carousel-arrow', type:'button', 'aria-label':'Next service'}, [document.createTextNode('›')]);
+    var dots = el('div', {class:'carousel-dots'});
+
+    function paint(){
+      viewport.innerHTML = '';
+      var svc = carouselServices[carouselIndex];
+      var card = el('div', {class:'carousel-card'});
+      card.appendChild(el('div', {class:'carousel-number'}, [document.createTextNode(String(carouselIndex+1).padStart(2,'0'))]));
+      var copy = el('div', {class:'carousel-copy'});
+      copy.appendChild(el('div', {class:'carousel-title'}, [document.createTextNode(svc.title)]));
+      copy.appendChild(el('div', {class:'carousel-desc'}, [document.createTextNode(svc.desc)]));
+      card.appendChild(copy);
+      viewport.appendChild(card);
+
+      dots.innerHTML = '';
+      carouselServices.forEach(function(_, i){
+        var d = el('button', {class:'carousel-dot' + (i === carouselIndex ? ' active' : ''), type:'button', 'aria-label':'Go to service ' + (i+1)});
+        d.addEventListener('click', function(){ carouselIndex = i; paint(); restartAutoplay(); });
+        dots.appendChild(d);
+      });
+    }
+
+    function step(delta){
+      carouselIndex = (carouselIndex + delta + carouselServices.length) % carouselServices.length;
+      paint();
+    }
+
+    function restartAutoplay(){
+      stopCarouselAutoplay();
+      carouselTimer = setInterval(function(){ step(1); }, 3200);
+    }
+
+    prev.addEventListener('click', function(){ step(-1); restartAutoplay(); });
+    next.addEventListener('click', function(){ step(1); restartAutoplay(); });
+    row.addEventListener('mouseenter', stopCarouselAutoplay);
+    row.addEventListener('mouseleave', restartAutoplay);
+
+    // basic swipe support
+    var touchStartX = null;
+    viewport.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+    viewport.addEventListener('touchend', function(e){
+      if(touchStartX === null) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if(Math.abs(dx) > 30){ step(dx < 0 ? 1 : -1); restartAutoplay(); }
+      touchStartX = null;
+    }, {passive:true});
+
+    row.appendChild(prev);
+    row.appendChild(viewport);
+    row.appendChild(next);
+    wrap.appendChild(row);
+    wrap.appendChild(dots);
+
+    paint();
+    restartAutoplay();
+    return wrap;
+  }
+
   // ---- Stage renderers ----
   var renderers = {
 
@@ -618,11 +863,10 @@
       w.appendChild(el('div', {class:'eyebrow'}, [document.createTextNode('MSA · GLOBAL ADMISSIONS & SCHOLARSHIP MENTORSHIP')]));
       w.appendChild(el('h1', {}, [document.createTextNode('Start your international journey with confidence.')]));
       w.appendChild(el('p', {class:'lead'}, [document.createTextNode('This intake takes about 8–10 minutes. Your answers help your mentor build a school shortlist, a scholarship shortlist, and a personalised roadmap — instead of applying blindly.')]));
-      var pills = el('div', {class:'pill-list'});
-      ['School Selection','Scholarships','SOP Writing','CV Optimisation','Funding Strategy','Visa Preparation','Career Positioning'].forEach(function(p){
-        pills.appendChild(el('span', {class:'pill'}, [document.createTextNode(p)]));
-      });
-      w.appendChild(pills);
+
+      w.appendChild(buildJourneyMap());
+      w.appendChild(buildServiceCarousel());
+
       var start = el('button', {class:'btn-primary'}, [document.createTextNode('Begin Application →')]);
       start.addEventListener('click', function(){ goTo(1); });
       w.appendChild(start);
@@ -751,9 +995,17 @@
     },
 
     review: function(container){
-      container.appendChild(sectionHeader('FINAL STEP', 'Review & Download', 'Check everything below, then download your completed application to send to your mentor.'));
+      container.appendChild(sectionHeader('FINAL STEP', 'Review & Submit', 'Check everything below, then submit your application to your mentor. You can also keep a copy for yourself.'));
 
-      container.appendChild(el('div', {class:'seal'}, [document.createTextNode('✓ APPLICATION COMPLETE — READY TO DOWNLOAD')]));
+      if(submitStatus === 'sent'){
+        container.appendChild(el('div', {class:'seal'}, [document.createTextNode('✓ APPLICATION SUBMITTED — YOUR MENTOR HAS RECEIVED THIS')]));
+      } else if(submitStatus === 'error'){
+        container.appendChild(el('div', {class:'seal error'}, [document.createTextNode('✕ SUBMISSION FAILED — PLEASE TRY AGAIN OR EMAIL US DIRECTLY')]));
+      } else if(submitStatus === 'sending'){
+        container.appendChild(el('div', {class:'seal pending'}, [document.createTextNode('SENDING…')]));
+      } else {
+        container.appendChild(el('div', {class:'seal pending'}, [document.createTextNode('READY TO SUBMIT — REVIEW BELOW')]));
+      }
 
       var blocks = [
         {title:'Personal Information', items:[
@@ -806,7 +1058,15 @@
       });
 
       var dlRow = el('div', {class:'download-row'});
-      var pdfBtn = el('button', {class:'btn-gold'}, [document.createTextNode('⬇ Download as PDF')]);
+
+      var submitBtn = el('button', {class:'btn-gold'}, [document.createTextNode(
+        submitStatus === 'sent' ? '✓ Submitted' : (submitStatus === 'sending' ? 'Submitting…' : 'Submit Application to Mentor')
+      )]);
+      if(submitStatus === 'sending' || submitStatus === 'sent') submitBtn.disabled = true;
+      submitBtn.addEventListener('click', submitApplication);
+      dlRow.appendChild(submitBtn);
+
+      var pdfBtn = el('button', {class:'btn-ghost'}, [document.createTextNode('⬇ Download as PDF')]);
       pdfBtn.addEventListener('click', downloadPDF);
       var txtBtn = el('button', {class:'btn-ghost'}, [document.createTextNode('⬇ Download as Text File')]);
       txtBtn.addEventListener('click', downloadText);
@@ -824,6 +1084,42 @@
       buildPrintArea(blocks);
     }
   };
+
+  function submitApplication(){
+    if(SUBMIT_ENDPOINT.indexOf('REPLACE_WITH_YOUR_FORM_ID') > -1){
+      alert('Submission is not wired up yet: paste your real Formspree (or Zoho Flow) endpoint into SUBMIT_ENDPOINT near the top of the script before going live.');
+      return;
+    }
+    submitStatus = 'sending';
+    render();
+
+    var payload = {
+      fullName: state.fullName, dob: state.dob, email: state.email, phone: state.phone,
+      country: state.country, city: state.city, address: state.address,
+      highestQual: state.highestQual, institution: state.institution, fieldOfStudy: state.fieldOfStudy,
+      gradeClass: state.gradeClass, gradYear: state.gradYear,
+      targetCareer: state.targetCareer, shortGoal: state.shortGoal, longGoal: state.longGoal,
+      countries: state.countries.join(', '), canadaPGWP: state.canadaPGWP, ukGradRoute: state.ukGradRoute, usaTest: state.usaTest,
+      budget: state.budget, fundingSource: state.fundingSource, guarantor: state.guarantor,
+      seekingScholarship: state.seekingScholarship, scholarshipTypes: state.scholarshipTypes.join(', '), scholarshipApplied: state.scholarshipApplied,
+      yearsExp: state.yearsExp, currentRole: state.currentRole, achievements: state.achievements,
+      fileTranscript: state.fileTranscript, fileCV: state.fileCV, filePassport: state.filePassport, filePhoto: state.filePhoto,
+      consentAccuracy: state.consentAccuracy ? 'Yes' : 'No', consentComms: state.consentComms ? 'Yes' : 'No', signature: state.signature,
+      _subject: 'New MSA Mentorship Application — ' + (state.fullName || 'Unnamed applicant')
+    };
+
+    fetch(SUBMIT_ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      submitStatus = res.ok ? 'sent' : 'error';
+      render();
+    }).catch(function(){
+      submitStatus = 'error';
+      render();
+    });
+  }
 
   function buildPrintArea(blocks){
     var area = document.getElementById('printArea');
@@ -910,6 +1206,7 @@
   function goTo(idx){
     if(idx < 0) idx = 0;
     if(idx > stageDefs.length - 1) idx = stageDefs.length - 1;
+    if(idx !== 0) stopCarouselAutoplay();
     currentIndex = idx;
     if(idx > maxReached) maxReached = idx;
     render();
